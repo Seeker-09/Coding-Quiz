@@ -39,9 +39,71 @@ var questionObjArr = [
 
 startButtonEl.addEventListener("click", function() {
     var arrayCounter = 0;
-    var quizTime = 4;
+    var questionArrayLength = questionObjArr.length;
+    var quizTime = 29;
+
     // to prevent a long delay, I need to disply time + 1
     countdownEl.textContent = quizTime + 1;
+
+    // no delay in displaying the question
+    questionEl.textContent = questionObjArr[arrayCounter].question;
+    answer1BtnEl.textContent = questionObjArr[arrayCounter].answer1;
+    answer2BtnEl.textContent = questionObjArr[arrayCounter].answer2;
+    answer3BtnEl.textContent = questionObjArr[arrayCounter].answer3;
+    answer4BtnEl.textContent = questionObjArr[arrayCounter].answer4;
+
+    // append buttons to li
+    answer1LiEl.appendChild(answer1BtnEl);
+    answer2LiEl.appendChild(answer2BtnEl);
+    answer3LiEl.appendChild(answer3BtnEl);
+    answer4LiEl.appendChild(answer4BtnEl);
+
+    // append li to ul
+    answerListEl.appendChild(answer1LiEl);
+    answerListEl.appendChild(answer2LiEl);
+    answerListEl.appendChild(answer3LiEl);
+    answerListEl.appendChild(answer4LiEl);
+
+    /* ANSWER BUTTON LISTENERS */
+    answer1BtnEl.addEventListener("click", function() {
+        if(answer1BtnEl.textContent === questionObjArr[arrayCounter].correctAnswer) {
+            console.log("correct");
+            arrayCounter++;
+        }
+        else {
+            quizTime -= 5;
+        }
+    })
+
+    answer2BtnEl.addEventListener("click", function() {
+        if(answer2BtnEl.textContent === questionObjArr[arrayCounter].correctAnswer) {
+            console.log("correct");
+            arrayCounter++;
+        }
+        else {
+            quizTime -= 5;
+        }
+    })
+
+    answer3BtnEl.addEventListener("click", function() {
+        if(answer3BtnEl.textContent === questionObjArr[arrayCounter].correctAnswer) {
+            console.log("correct");
+            arrayCounter++;
+        }
+        else {
+            quizTime -= 5;
+        }
+    })
+
+    answer4BtnEl.addEventListener("click", function() {
+        if(answer4BtnEl.textContent === questionObjArr[arrayCounter].correctAnswer) {
+            console.log("correct");
+            arrayCounter++;
+        }
+        else {
+            quizTime -= 5;
+        }
+    })
 
     var quizTimer = setInterval(function() {
         // display countdown
@@ -55,59 +117,6 @@ startButtonEl.addEventListener("click", function() {
         answer2BtnEl.textContent = questionObjArr[arrayCounter].answer2;
         answer3BtnEl.textContent = questionObjArr[arrayCounter].answer3;
         answer4BtnEl.textContent = questionObjArr[arrayCounter].answer4;
-
-        // append buttons to li
-        answer1LiEl.appendChild(answer1BtnEl);
-        answer2LiEl.appendChild(answer2BtnEl);
-        answer3LiEl.appendChild(answer3BtnEl);
-        answer4LiEl.appendChild(answer4BtnEl);
-
-        // append li to ul
-        answerListEl.appendChild(answer1LiEl);
-        answerListEl.appendChild(answer2LiEl);
-        answerListEl.appendChild(answer3LiEl);
-        answerListEl.appendChild(answer4LiEl);
     }, 1000)
-
-    /* ANSWER BUTTON LISTENERS */
-    answer1BtnEl.addEventListener("click", function() {
-        if(answer1BtnEl.textContent === questionObjArr[arrayCounter].correctAnswer) {
-            console.log("correct");
-            arrayCounter++;
-        }
-        else {
-            console.log("Wrong answer, try again");
-        }
-    })
-
-    answer2BtnEl.addEventListener("click", function() {
-        if(answer2BtnEl.textContent === questionObjArr[arrayCounter].correctAnswer) {
-            console.log("correct");
-            arrayCounter++;
-        }
-        else {
-            console.log("Wrong answer, try again");
-        }
-    })
-
-    answer3BtnEl.addEventListener("click", function() {
-        if(answer3BtnEl.textContent === questionObjArr[arrayCounter].correctAnswer) {
-            console.log("correct");
-            arrayCounter++;
-        }
-        else {
-            console.log("Wrong answer, try again");
-        }
-    })
-
-    answer4BtnEl.addEventListener("click", function() {
-        if(answer4BtnEl.textContent === questionObjArr[arrayCounter].correctAnswer) {
-            console.log("correct");
-            arrayCounter++;
-        }
-        else {
-            console.log("Wrong answer, try again");
-        }
-    })
 });
 
