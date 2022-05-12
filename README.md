@@ -8,4 +8,4 @@ A webpage that generates a timed quiz on JavaScript, and stores the score in loc
 
 # LINK TO APPLICATION: 
 
-https://github.com/Seeker-09/Coding-Quiz
+https://seeker-09.github.io/Coding-Quiz/
