@@ -24,12 +24,24 @@ var questionObjArr = [
         answer1: "yes",
         answer2: "no",
         answer3: "maybe", 
-        answer4: "def no"
+        answer4: "def no",
+        correctAnswer: "yes" // how to make refer to correct answer's text??
+    },
+    {
+        question: "how did i get here?",
+        answer1: "you didn't",
+        answer2: "haha",
+        answer3: "idk", 
+        answer4: "what",
+        correctAnswer: "haha"
     }
 ];
 
 startButtonEl.addEventListener("click", function() {
-    var quizTime = 5;
+    var arrayCounter = 0;
+    var quizTime = 4;
+    // to prevent a long delay, I need to disply time + 1
+    countdownEl.textContent = quizTime + 1;
 
     var quizTimer = setInterval(function() {
         // display countdown
@@ -38,11 +50,11 @@ startButtonEl.addEventListener("click", function() {
 
         /* DISPLAY QUESTIONS AND ANSWERS */
         // fill text content 
-        questionEl.textContent = questionObjArr[0].question;
-        answer1BtnEl.textContent = questionObjArr[0].answer1;
-        answer2BtnEl.textContent = questionObjArr[0].answer2;
-        answer3BtnEl.textContent = questionObjArr[0].answer3;
-        answer4BtnEl.textContent = questionObjArr[0].answer4;
+        questionEl.textContent = questionObjArr[arrayCounter].question;
+        answer1BtnEl.textContent = questionObjArr[arrayCounter].answer1;
+        answer2BtnEl.textContent = questionObjArr[arrayCounter].answer2;
+        answer3BtnEl.textContent = questionObjArr[arrayCounter].answer3;
+        answer4BtnEl.textContent = questionObjArr[arrayCounter].answer4;
 
         // append buttons to li
         answer1LiEl.appendChild(answer1BtnEl);
@@ -56,5 +68,46 @@ startButtonEl.addEventListener("click", function() {
         answerListEl.appendChild(answer3LiEl);
         answerListEl.appendChild(answer4LiEl);
     }, 1000)
+
+    /* ANSWER BUTTON LISTENERS */
+    answer1BtnEl.addEventListener("click", function() {
+        if(answer1BtnEl.textContent === questionObjArr[arrayCounter].correctAnswer) {
+            console.log("correct");
+            arrayCounter++;
+        }
+        else {
+            console.log("Wrong answer, try again");
+        }
+    })
+
+    answer2BtnEl.addEventListener("click", function() {
+        if(answer2BtnEl.textContent === questionObjArr[arrayCounter].correctAnswer) {
+            console.log("correct");
+            arrayCounter++;
+        }
+        else {
+            console.log("Wrong answer, try again");
+        }
+    })
+
+    answer3BtnEl.addEventListener("click", function() {
+        if(answer3BtnEl.textContent === questionObjArr[arrayCounter].correctAnswer) {
+            console.log("correct");
+            arrayCounter++;
+        }
+        else {
+            console.log("Wrong answer, try again");
+        }
+    })
+
+    answer4BtnEl.addEventListener("click", function() {
+        if(answer4BtnEl.textContent === questionObjArr[arrayCounter].correctAnswer) {
+            console.log("correct");
+            arrayCounter++;
+        }
+        else {
+            console.log("Wrong answer, try again");
+        }
+    })
 });
 
